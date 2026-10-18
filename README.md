@@ -12,10 +12,16 @@ rest is either our own project or an external one included as a submodule.
 |---|---|---|---|
 | tessera | `kernel/tessera` | enderman-claude/tessera (ours) | x86_64 UEFI kernel |
 | oxinit | planned: `init/oxinit` | enderman-claude/oxinit (ours) | PID 1 init, once there is a syscall layer |
+| shard | `lib/shard` | enderman-claude/shard (ours) | native binary format, and the loader for SHARD and plain ELF64 |
 | zstd | planned: `third_party/zstd` | facebook/zstd (external) | compression for boot payloads |
 
-Only `tessera` is wired in today. The other entries are planned, and each will be
+Wired in today: `tessera` (kernel) and `shard` (binary format). The other entries are planned, and each will be
 added as a submodule when it is needed.
+
+## Binary format
+All programs for tesseraOS are SHARD images (see `lib/shard/docs/spec/format.md`). The loader
+also accepts a plain ELF64 subset (ET_DYN, x86_64), so existing toolchains can produce
+programs without a SHARD packer. Both load through `lib/shard`.
 
 ## How it fits together
 - The kernel builds from `kernel/tessera` into `kernel/tessera/build/BOOTX64.EFI`.

@@ -1,3 +1,6 @@
 [submodule "kernel/tessera"]
 	path = kernel/tessera
 	url = https://github.com/enderman-claude/tessera
+[submodule "lib/shard"]
+	path = lib/shard
+	url = https://github.com/enderman-claude/shard
