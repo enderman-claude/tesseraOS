@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install toolchain
+        run: sudo apt-get update && sudo apt-get install -y gcc binutils make python3
+      - name: Kernel layout and build
+        run: make -C kernel/tessera
+      - name: Toolchain integration (gcc -> elfpack -> shardelf -> loaders -> run)
+        run: make integration

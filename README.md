@@ -34,6 +34,15 @@ programs without a SHARD packer. Both load through `lib/shard`.
     # or, after a plain clone:
     git submodule update --init --recursive
 
+## Toolchain (what works end to end)
+    make integration
+
+This builds a test program with gcc (static-pie, ELF), packs it to SHARD with `elfpack`,
+converts it back to ELF with `shardelf`, then loads all three forms with the OS loaders and
+runs them. It is a host test: nothing boots yet.
+
+There is no SHARD compiler. Programs are written in C, compiled by gcc, and packed to SHARD.
+
 ## Build
 Requirements: `gcc`, `ld` (binutils with `i386pep`), `python3`, `make`.
 
