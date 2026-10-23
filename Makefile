@@ -28,4 +28,12 @@ integration:
 	    $(SHARD)/build/libshard.a
 	$(INT)/run $(INT)
 
-.PHONY: integration
+# teds (display server) and xteds (X11 compatibility on teds), host tests over loopback.
+TEDS  := services/teds
+XTEDS := services/xteds
+
+services-test:
+	$(MAKE) -C $(TEDS) test
+	$(MAKE) -C $(XTEDS) test TEDS_REPO=../teds
+
+.PHONY: integration services-test

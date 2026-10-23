@@ -4,3 +4,9 @@
 [submodule "lib/shard"]
 	path = lib/shard
 	url = https://github.com/enderman-claude/shard
+[submodule "services/teds"]
+	path = services/teds
+	url = https://github.com/enderman-claude/tesseraOS-teds
+[submodule "services/xteds"]
+	path = services/xteds
+	url = https://github.com/enderman-claude/tesseraOS-xteds

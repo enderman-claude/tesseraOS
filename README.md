@@ -11,12 +11,14 @@ rest is either our own project or an external one included as a submodule.
 | Component | Path | Origin | Role |
 |---|---|---|---|
 | tessera | `kernel/tessera` | enderman-claude/tessera (ours) | x86_64 UEFI kernel |
+| teds | `services/teds` | enderman-claude/tesseraOS-teds (ours) | Display server: client and direct modes |
+| xteds | `services/xteds` | enderman-claude/tesseraOS-xteds (ours) | X11 compatibility, a teds client |
 | oxinit | planned: `init/oxinit` | enderman-claude/oxinit (ours) | PID 1 init, once there is a syscall layer |
 | shard | `lib/shard` | enderman-claude/shard (ours) | native binary format, and the loader for SHARD and plain ELF64 |
 | zstd | planned: `third_party/zstd` | facebook/zstd (external) | compression for boot payloads |
 
-Wired in today: `tessera` (kernel) and `shard` (binary format). The other entries are planned, and each will be
-added as a submodule when it is needed.
+Wired in today: `tessera` (kernel), `shard` (binary format), `teds` and `xteds` (services). The
+other entries are planned, and each will be added as a submodule when it is needed.
 
 ## Binary format
 All programs for tesseraOS are SHARD images (see `lib/shard/docs/spec/format.md`). The loader
@@ -52,6 +54,11 @@ Requirements: `gcc`, `ld` (binutils with `i386pep`), `python3`, `make`.
 The top-level Makefile delegates to each component. Right now it only runs the
 tessera build.
 
+## Services
+`make services-test` builds and tests the userland services on the host, with no kernel:
+teds runs its server and client over loopback, and xteds runs its window table and a bridge
+integration test against teds. It needs only `gcc` and `make`.
+
 ## Testing
 Nothing boots yet. Testing will use QEMU with OVMF once the kernel prints to the
 console. The development sandbox does not have QEMU or OVMF.
@@ -75,8 +82,8 @@ Repos used by tesseraOS. Submodules are pinned in this repo; planned ones are no
 | [enderman-claude/shard](https://github.com/enderman-claude/shard) | Native binary format and loader (`lib/shard`) | Submodule |
 | [enderman-claude/oxinit](https://github.com/enderman-claude/oxinit) | PID 1 init (Ada) | Exists; not yet a submodule |
 | [facebook/zstd](https://github.com/facebook/zstd) | Boot payload compression (`third_party/zstd`) | Planned |
-| [enderman-claude/tesseraOS-teds](https://github.com/enderman-claude/tesseraOS-teds) | teds, the Ender display server | Planned |
-| [enderman-claude/tesseraOS-xteds](https://github.com/enderman-claude/tesseraOS-xteds) | xteds, X11 compatibility on teds | Planned |
+| [enderman-claude/tesseraOS-teds](https://github.com/enderman-claude/tesseraOS-teds) | teds, the Ender display server (`services/teds`) | Submodule |
+| [enderman-claude/tesseraOS-xteds](https://github.com/enderman-claude/tesseraOS-xteds) | xteds, X11 compatibility on teds (`services/xteds`) | Submodule |
 | [enderman-claude/ember-gfx](https://github.com/enderman-claude/ember-gfx) | 2D graphics library for Ember programs; has a stub tesseraOS backend | Library, stub backend |
 | [enderman-claude/ember](https://github.com/enderman-claude/ember) | Ember compiler, for programs written in Ember (`--target shard`) | Toolchain, not a submodule |
 
