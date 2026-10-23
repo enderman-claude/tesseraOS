@@ -29,6 +29,10 @@ integration:
 	$(INT)/run $(INT)
 
 # teds (display server) and xteds (X11 compatibility on teds), host tests over loopback.
+# Boots the kernel image under QEMU with OVMF and checks the serial log (needs qemu and OVMF).
+qemu-test:
+	$(MAKE) -C $(KERNEL) qemu-test
+
 TEDS  := services/teds
 XTEDS := services/xteds
 
@@ -36,4 +40,4 @@ services-test:
 	$(MAKE) -C $(TEDS) test
 	$(MAKE) -C $(XTEDS) test TEDS_REPO=../teds
 
-.PHONY: integration services-test
+.PHONY: integration services-test qemu-test

@@ -60,11 +60,13 @@ teds runs its server and client over loopback, and xteds runs its window table a
 integration test against teds. It needs only `gcc` and `make`.
 
 ## Testing
-Nothing boots yet. Testing will use QEMU with OVMF once the kernel prints to the
-console. The development sandbox does not have QEMU or OVMF.
+`make qemu-test` boots the kernel under QEMU with OVMF and checks the serial log for the
+boot markers. It needs `qemu-system-x86_64` and the `ovmf` package. The kernel reports its
+boot stages, leaves boot services, runs the RAM test, and reaches the root console.
+Real hardware has not been tested.
 
 ## Roadmap
-1. Kernel boots under UEFI and prints a line (tessera).
+1. Kernel boots under UEFI and prints a line (tessera). Done under QEMU; see `make qemu-test`.
 2. Kernel reads the memory map and exits boot services.
 3. Physical memory, paging, and interrupts.
 4. Syscall ABI, then oxinit as PID 1.
