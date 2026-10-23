@@ -77,6 +77,7 @@ Repos used by tesseraOS. Submodules are pinned in this repo; planned ones are no
 | [facebook/zstd](https://github.com/facebook/zstd) | Boot payload compression (`third_party/zstd`) | Planned |
 | [enderman-claude/tesseraOS-teds](https://github.com/enderman-claude/tesseraOS-teds) | teds, the Ender display server | Planned |
 | [enderman-claude/tesseraOS-xteds](https://github.com/enderman-claude/tesseraOS-xteds) | xteds, X11 compatibility on teds | Planned |
+| [enderman-claude/ember-gfx](https://github.com/enderman-claude/ember-gfx) | 2D graphics library for Ember programs; has a stub tesseraOS backend | Library, stub backend |
 | [enderman-claude/ember](https://github.com/enderman-claude/ember) | Ember compiler, for programs written in Ember (`--target shard`) | Toolchain, not a submodule |
 
 ## License
