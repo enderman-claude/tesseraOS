@@ -73,7 +73,7 @@ Repos used by tesseraOS. Submodules are pinned in this repo; planned ones are no
 |---|---|---|
 | [enderman-claude/tessera](https://github.com/enderman-claude/tessera) | x86_64 UEFI kernel (`kernel/tessera`) | Submodule |
 | [enderman-claude/shard](https://github.com/enderman-claude/shard) | Native binary format and loader (`lib/shard`) | Submodule |
-| [enderman-claude/oxinit](https://github.com/enderman-claude/oxinit) | PID 1 init | Planned |
+| [enderman-claude/oxinit](https://github.com/enderman-claude/oxinit) | PID 1 init (Ada) | Exists; not yet a submodule |
 | [facebook/zstd](https://github.com/facebook/zstd) | Boot payload compression (`third_party/zstd`) | Planned |
 | [enderman-claude/tesseraOS-teds](https://github.com/enderman-claude/tesseraOS-teds) | teds, the Ender display server | Planned |
 | [enderman-claude/tesseraOS-xteds](https://github.com/enderman-claude/tesseraOS-xteds) | xteds, X11 compatibility on teds | Planned |
