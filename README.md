@@ -13,6 +13,7 @@ rest is either our own project or an external one included as a submodule.
 | tessera | `kernel/tessera` | enderman-claude/tessera (ours) | x86_64 UEFI kernel |
 | teds | `services/teds` | enderman-claude/tesseraOS-teds (ours) | Display server: client and direct modes |
 | xteds | `services/xteds` | enderman-claude/tesseraOS-xteds (ours) | X11 compatibility, a teds client |
+| net | `services/net` | enderman-claude/tesseraOS-net (ours) | Networking: stubs and plan (N0), not yet working |
 | oxinit | planned: `init/oxinit` | enderman-claude/oxinit (ours) | PID 1 init, once there is a syscall layer |
 | shard | `lib/shard` | enderman-claude/shard (ours) | native binary format, and the loader for SHARD and plain ELF64 |
 | zstd | planned: `third_party/zstd` | facebook/zstd (external) | compression for boot payloads |

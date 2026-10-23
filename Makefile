@@ -36,8 +36,11 @@ qemu-test:
 TEDS  := services/teds
 XTEDS := services/xteds
 
+NET   := services/net
+
 services-test:
 	$(MAKE) -C $(TEDS) test
 	$(MAKE) -C $(XTEDS) test TEDS_REPO=../teds
+	$(MAKE) -C $(NET) test
 
 .PHONY: integration services-test qemu-test

@@ -10,3 +10,6 @@
 [submodule "services/xteds"]
 	path = services/xteds
 	url = https://github.com/enderman-claude/tesseraOS-xteds
+[submodule "services/net"]
+	path = services/net
+	url = https://github.com/enderman-claude/tesseraOS-net
