@@ -14,12 +14,13 @@ rest is either our own project or an external one included as a submodule.
 | teds | `services/teds` | enderman-claude/tesseraOS-teds (ours) | Display server: client and direct modes |
 | xteds | `services/xteds` | enderman-claude/tesseraOS-xteds (ours) | X11 compatibility, a teds client |
 | net | `services/net` | enderman-claude/tesseraOS-net (ours) | Networking: stubs and plan (N0), not yet working |
-| oxinit | planned: `init/oxinit` | enderman-claude/oxinit (ours) | PID 1 init, once there is a syscall layer |
+| oxinit | planned: `init/oxinit` | enderman-claude/oxinit (ours) | PID 1 init, once there is a syscall layer. Builds and tests on its own; not yet a submodule |
 | shard | `lib/shard` | enderman-claude/shard (ours) | native binary format, and the loader for SHARD and plain ELF64 |
 | zstd | planned: `third_party/zstd` | facebook/zstd (external) | compression for boot payloads |
 
-Wired in today: `tessera` (kernel), `shard` (binary format), `teds` and `xteds` (services). The
-other entries are planned, and each will be added as a submodule when it is needed.
+Wired in today: `tessera` (kernel), `shard` (binary format), and the `teds`, `xteds` and `net`
+services. `net` is a stub plan and does not work yet. The other entries are planned, and each
+will be added as a submodule when it is needed.
 
 ## Binary format
 All programs for tesseraOS are SHARD images (see `lib/shard/docs/spec/format.md`). The loader
@@ -84,11 +85,12 @@ Repos used by tesseraOS. Submodules are pinned in this repo; planned ones are no
 | [enderman-claude/tessera](https://github.com/enderman-claude/tessera) | x86_64 UEFI kernel (`kernel/tessera`) | Submodule |
 | [enderman-claude/shard](https://github.com/enderman-claude/shard) | Native binary format and loader (`lib/shard`) | Submodule |
 | [enderman-claude/oxinit](https://github.com/enderman-claude/oxinit) | PID 1 init (Ada) | Exists; not yet a submodule |
+| [enderman-claude/tesseraOS-net](https://github.com/enderman-claude/tesseraOS-net) | networking service (`services/net`) | Submodule, stubs only |
 | [facebook/zstd](https://github.com/facebook/zstd) | Boot payload compression (`third_party/zstd`) | Planned |
 | [enderman-claude/tesseraOS-teds](https://github.com/enderman-claude/tesseraOS-teds) | teds, the Ender display server (`services/teds`) | Submodule |
 | [enderman-claude/tesseraOS-xteds](https://github.com/enderman-claude/tesseraOS-xteds) | xteds, X11 compatibility on teds (`services/xteds`) | Submodule |
 | [enderman-claude/ember-gfx](https://github.com/enderman-claude/ember-gfx) | 2D graphics library for Ember programs; has a stub tesseraOS backend | Library, stub backend |
-| [enderman-claude/ember](https://github.com/enderman-claude/ember) | Ember compiler, for programs written in Ember (`--target shard`) | Toolchain, not a submodule |
+| [enderman-claude/ember](https://github.com/enderman-claude/ember) | Ember compiler, for programs written in Ember (`--target shard`) | Toolchain, not a submodule; not pinned to a version |
 
 ## License
 Not yet chosen.
