@@ -90,5 +90,7 @@ Repos used by tesseraOS. Submodules are pinned in this repo; planned ones are no
 | [enderman-claude/ember-gfx](https://github.com/enderman-claude/ember-gfx) | 2D graphics library for Ember programs; has a stub tesseraOS backend | Library, stub backend |
 | [enderman-claude/ember](https://github.com/enderman-claude/ember) | Ember compiler, for programs written in Ember (`--target shard`) | Toolchain, not a submodule |
 
+*Footnote: the kernel never takes a day off. It is always in ring 0.*
+
 ## License
 Not yet chosen.
